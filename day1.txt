@@ -1,0 +1,41 @@
+Introduction to Django
+
+Django is a Python web Framework
+
+
+Django is established from 2003
+
+Two types of Architectures
+
+1. mvc
+Model View Controller
+Model - Sql Database
+View - HTML,CSS,Js,Jquery,Boostrap
+Controller-.py,.net,.java
+
+2.mvt
+model View Template
+template - html,css,boostrap
+
+django Installation
+cmd --> python 
+
+
+
+C:\Users\ravi sastry\AppData\Local\Programs
+\Python\Python37-32\Scripts
+pip install django
+pip list
+django-admin --version
+or
+python -m django --version
+
+django-admin startproject projectname
+
+django-admin startproject Giet
+
+python manage.py startapp appname
+
+    https://github.com/AP-Skill-Development-
+    Corporation/django-offline-at-GIET-10-feb-2021
+
