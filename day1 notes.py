@@ -192,6 +192,28 @@ class Class2(Class1):
 obj = Class2()
 obj.m1(77,66)
 
+#multilevel inheritance
+class A():
+    pass
+class B(A):
+    pass
+class C(B):
+    pass
+#Multiple inheritance
+class parent():
+    pass
+class parent2():
+    pass
+class child(parent1,parent2):
+    pass
+#hierarchical inheritance
+class MyParentClass:
+    pass
+class MyChild1(MyParentClass):
+    pass
+class MyChild2(MyParentClass):
+    pass
+
 
 
 
