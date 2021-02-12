@@ -6,4 +6,6 @@ urlpatterns = [
 	path('student',views.student, name = 'student'),
 	path('<int:val>',views.value,name= 'value'),#localhost:myapp2/67
 	path("table/<int:v>",views.table, name= 'table'),
+	path('sample/',views.sample),
+	path('register/',views.register,name='register'),
 ]

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+		
+<form method="POST" action="#">
+	<div class="form-group col-md-3">
+	{%csrf_token%}
+	FirstName:<input class="form-control" type="text" name="fname" required><br>
+	LastName:<input class="form-control" type="text" name="lname" required><br>
+	mail-id :<input class="form-control" type="text" name="email" required><br>
+	password :<input class="form-control" type="password" name="password" required><br>
+	<button class= "btn btn-primary"type="submit">Submit</button>
+</div>
+</form>
+{% endblock %}

@@ -26,3 +26,32 @@ def table(request, v):
 	for i in range(1,11):
 		a.append(i*v)
 	return render(request,'table.html',{'array':a,'v':v})
+def sample(request):
+	return render(request,'sample.html')
+def register(request):
+	if request.method == 'POST':
+		fname = request.POST.get('fname')
+		lname = request.POST.get('lname')
+		email = request.POST.get('email')
+		password = request.POST.get('password')
+		context = {'fname':fname,'lname':lname,'email':email,'password':password}
+		return render(request,'result.html',context)
+	return render(request,'register.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
