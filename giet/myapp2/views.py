@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import random
+from myapp2.models import Student
 # Create your views here.
 def stat(request):
 	return HttpResponse("Iam from Myapp2")
@@ -31,12 +32,47 @@ def sample(request):
 def register(request):
 	if request.method == 'POST':
 		fname = request.POST.get('fname')
-		lname = request.POST.get('lname')
+		roll_number = request.POST.get('rollnum')
 		email = request.POST.get('email')
-		password = request.POST.get('password')
-		context = {'fname':fname,'lname':lname,'email':email,'password':password}
-		return render(request,'result.html',context)
+		phone = request.POST.get('phone')
+		gender = request.POST.get('gender')
+		# context = {'fname':fname,"roll_number":roll_number,'email':email,'phone':phone, "gender":gender}
+		
+		Student.objects.create(FullName=fname,RollNo=roll_number,EmailId=email,MobileNo=phone,Gender=gender)
+		return redirect('details')
 	return render(request,'register.html')
+
+
+def disply_details(request):
+	data = Student.objects.all()
+	return render(request,'result.html',{'data':data})
+
+
+def update_details(request,id):
+	data = Student.objects.get(id=id)
+	if request.method == 'POST':
+		data.FullName = request.POST.get('fname')
+		data.RollNo = request.POST.get('rollnum')
+		data.EmailId = request.POST.get('email')
+		data.MobileNo = request.POST.get('phone') 
+		data.Gender= request.POST.get('gender')
+		data.save()
+		return redirect('details')
+	return  render(request,'update.html',{'data':data})
+
+
+def delete(request, id):
+	Student.objects.get(id=id).delete()
+	return redirect('details')
+
+
+
+
+
+
+
+
+
 
 
 

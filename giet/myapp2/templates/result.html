@@ -3,15 +3,24 @@
 <table border="3">
 	<tr>
 		<th>FirstName</th>
-		<th>LastName</th>
+		<th>roll_number</th>
 		<th>Email-id</th>
-		<th>Password</th>
+		<th>Phone</th>
+		<th>Gender</th>
+		<th>UpdateAction</th>
+		<th>DeleteAction</th>
 	</tr>
-	<tr>
-		<td>{{fname}}</td>
-		<td>{{lname}}</td>
-		<td>{{email}}</td>
-		<td>{{password}}</td>
-	</tr>
+	{% for i in data %}
+	<tr>	
+		<td>{{i.FullName}}</td>
+		<td>{{i.RollNo}}</td>
+		<td>{{i.EmailId}}</td>
+		<td>{{i.MobileNo}}</td>
+		<td>{{i.Gender}}</td>
+		<td><a class="btn btn-primary" href="{% url 'update' i.id %}">Update</a></td>
+		<td><a class="btn btn-danger" href="{% url 'delete' i.id %}">Delete</a></td>
+		</tr>	
+	{% endfor%}
+	
 </table>
 {% endblock %}

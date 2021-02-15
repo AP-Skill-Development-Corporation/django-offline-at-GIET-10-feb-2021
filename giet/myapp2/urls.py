@@ -8,4 +8,7 @@ urlpatterns = [
 	path("table/<int:v>",views.table, name= 'table'),
 	path('sample/',views.sample),
 	path('register/',views.register,name='register'),
+	path('disply/',views.disply_details, name='details'),
+	path('update/<int:id>',views.update_details,name= 'update'),
+	path('delete/<int:id>',views.delete, name= 'delete'),
 ]

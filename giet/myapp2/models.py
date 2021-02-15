@@ -8,8 +8,8 @@ class Student(models.Model):
 	EmailId=models.EmailField()
 	MobileNo=models.CharField(max_length=10)
 	Gender=models.CharField(max_length=6,choices=Gender_choices)
-	date_of_birth=models.DateField(null=True)
-	Address=models.TextField()
+	date_of_birth=models.DateField(null=True,blank=True)
+	Address=models.TextField(null=True,blank=True)
 
 	def __str__(self):
 		return self.FullName
