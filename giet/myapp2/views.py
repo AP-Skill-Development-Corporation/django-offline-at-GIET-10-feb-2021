@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import random
-from myapp2.models import Student
+from myapp2.models import Student,Registration
+from myapp2.forms import StudentForm
+from django.contrib import messages
 # Create your views here.
 def stat(request):
 	return HttpResponse("Iam from Myapp2")
@@ -64,6 +66,34 @@ def update_details(request,id):
 def delete(request, id):
 	Student.objects.get(id=id).delete()
 	return redirect('details')
+
+def signup(request):
+	if request.method=='POST':
+		form=StudentForm(request.POST)
+		if form.is_valid():
+			form.save()
+			messages.success(request,"Successfully Registered...!")
+		return redirect('signup')
+		#return HttpResponse("Successfully Registered")
+	form=StudentForm()
+	return render(request,"signup.html",{'form':form})
+
+def registration(request):
+	if request.method == 'POST':
+		uname = request.POST.get('uname')
+		email = request.POST.get('email')
+		pwd = request.POST.get('pwd')
+		im = request.FILES['image']
+		Registration.objects.create(Username=uname,Email=email,Password=pwd,Image=im)
+		return redirect('showdata')
+	return render(request,'registration.html')
+
+def showdata(request):
+	data = Registration.objects.all()
+	return render(request,'showdata.html',{'data':data})
+
+
+
 
 
 

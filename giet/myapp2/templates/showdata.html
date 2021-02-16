@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<table border="3">
+	<thead>
+	<tr>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Password</th>
+		<th>Image</th>
+	</tr>
+</thead>
+<tbody>
+	
+	{% for i in data %}
+	<tr>	
+		<td>{{i.Username}}</td>
+		<td>{{i.Email}}</td>
+		<td>{{i.Password}}</td>
+		<td><img src="/images/{{ i.Image }}" height="100px" width="100px"></td>
+	</tr>	
+	{% endfor%}
+</tbody>
+	
+</table>
+{% endblock %}

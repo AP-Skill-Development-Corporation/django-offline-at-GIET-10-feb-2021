@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from myapp import views
 from myapp2 import views as v
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('staticurl/',views.static,name="static"),
@@ -26,3 +28,6 @@ urlpatterns = [
   	path('staturl/',v.stat,name="stat"),
   	path('myapp2/',include('myapp2.urls')),
 ]
+if settings.DEBUG:
+  urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
