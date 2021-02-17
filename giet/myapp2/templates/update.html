@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+		
+<form method="POST" action="#">
+	<div class="form-group col-md-3">
+	{%csrf_token%}
+	FirstName:<input class="form-control" type="text" name="fname" value="{{ data.FullName}}" required><br>
+	Roll Number:<input class="form-control" type="text" name="rollnum" value="{{data.RollNo}}" required><br>
+	mail-id :<input class="form-control" type="text" name="email" value="{{data.EmailId}}" required><br>
+	Phone number :<input class="form-control" type="text" name="phone"  value={{data.MobileNo}} required><br>
+	Gender: <br>
+			<div class="form-group mt-2">
+			<lable class ="radio-inline">
+				<input type="radio" name="gender" value="Female" {% if data.Gender == 'Female' %} checked {% endif %}> Female
+			</lable>
+			<lable class ="radio-inline">
+				<input type="radio" name="gender" value="Male" {% if data.Gender == 'Male' %} checked {% endif %}> Male
+			</lable>
+		</div><br>
+	<button class= "btn btn-primary"type="submit">Update</button>
+</div>
+</form>
+{% endblock %}

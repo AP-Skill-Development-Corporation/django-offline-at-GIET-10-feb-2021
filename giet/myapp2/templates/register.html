@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+		
+<form method="POST" action="#">
+	<div >
+	<!-- <div class="form-group col-md-3"> -->
+		<div class="card-header p-2 mb-2 bg-dark text-white text-center p-2 border rounded"><h2>Registration Form</h2></div>
+	{%csrf_token%}
+	<b style="font-size:20px;">FirstName:</b><br><input class="form-control mt-2" placeholder="Enter FirstName" type="text" name="fname" required><br>
+	<b style="font-size:20px;">Roll Number:</b><input class="form-control mt-2" placeholder="Enter RollNumber" type="text" name="rollnum" required><br>
+	<b style="font-size:20px;">mail-id :</b><input class="form-control mt-2" placeholder="Enter EmailId" type="text" name="email" required><br>
+	<b style="font-size:20px;">Phone number :</b><input class="form-control mt-2" placeholder="Enter PhoneNumber" type="text" name="phone" required><br>
+	<div class="form-group mt-2">
+		<b style="font-size:20px;">Gender:</b><br>
+			<lable class ="radio-inline">
+				<input type="radio" name="gender" value="Female">Female
+			</lable>
+			<lable class ="radio-inline">
+				<input type="radio" name="gender" value="Male"> Male
+			</lable> 
+		</div>
+		<div class="row">
+    <div class="col text-center">
+	<button class= "btn btn-success btn-center p-2 mb-2 vertical-center"type="submit"><h5>Submit</h5></button>
+</div>
+</div></div>
+</form>
+{% endblock %}

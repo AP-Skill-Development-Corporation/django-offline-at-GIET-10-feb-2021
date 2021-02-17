@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+		
+<form method="POST" action="#" enctype="multipart/form-data">
+	<div >
+		<div class="card-header p-2 mb-2 bg-dark text-white text-center p-2 border rounded"><h2>Registration Form</h2></div>
+	{%csrf_token%}
+	<b style="font-size:20px;">Username:</b><br><input class="form-control mt-2" placeholder="Enter Username" type="text" name="uname" required><br>
+	<b style="font-size:20px;">Email</b><input class="form-control mt-2" placeholder="Enter Email" type="text" name="email" required><br>
+	<b style="font-size:20px;">Password:</b><input class="form-control mt-2" placeholder="Enter Password" type="password" name="pwd" required><br>
+	<b style="font-size:20px;">Image:</b><input type="file" name="image" class="form-control mt-2">
+	<button class="btn btn-primary" type='submit'>Submit</button>
+</div>
+</form>
+{% endblock %}
